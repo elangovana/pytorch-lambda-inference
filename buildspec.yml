@@ -1,0 +1,32 @@
+version: 0.2
+## This is meant to run on amazonlinux docker image
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install zip
+  pre_build:
+    commands:
+      - pip install pytest
+  build:
+    commands:
+      # Build and run tests to make sure all ok
+      - pip install -r source/requirements_dev.txt
+      - pytest
+
+  post_build:
+    commands:
+    # Create the build package
+      - echo creating package
+      - mkdir buildoutput
+    # The requirements build for lambda
+      - pip install -r source/requirements_lambda.txt  -t source
+    # Install torch without cuda on linux
+      - pip install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl -t source
+      - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test* && cd ..
+
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: buildoutput
