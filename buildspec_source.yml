@@ -34,6 +34,7 @@ phases:
       - pip install Pillow -t source
       - pip install cython  -t source # numpy dependency
       - pip install pyyaml  -t source # pytorch dependency
+      - pip install setuptools
 
 # numpy install form source
       - git clone --recursive https://github.com/numpy/numpy.git
