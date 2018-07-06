@@ -5,8 +5,8 @@ phases:
     commands:
       - yum -y update
       - yum -y install zip
-      - yum -y install python35
-      - yum -y python35-pip
+      - yum -y install python36
+      - yum -y install python36-pip
   pre_build:
     commands:
       - pip install pytest
