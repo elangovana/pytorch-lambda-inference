@@ -43,7 +43,7 @@ phases:
       - mkdir buildoutput
       - ls -l  ~/miniconda3/envs/buildenv/lib
       - cp -r  ~/miniconda3/envs/buildenv/lib/python3.6/site-packages/* source
-      - cp ~/miniconda3/envs/buildenv/lib/*.* source
+      - cp ~/miniconda3/envs/buildenv/lib/*.* source || :
       - ls -l
       - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
       - zip -r ../buildoutput/condalib.zip ~/miniconda3/envs/buildenv/lib
