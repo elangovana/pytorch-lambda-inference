@@ -26,7 +26,7 @@ phases:
     # Create the build package
       - echo creating package
       - mkdir buildoutput
-      - conda create --yes --name buildenv python=3.6
+      - /root/miniconda3/bin/conda create --yes --name buildenv python=3.6
       - source activate buildenv
     # The requirements build for lambda
       - conda install --yes --file source/requirements_lambda.txt
