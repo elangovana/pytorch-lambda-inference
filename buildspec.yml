@@ -9,7 +9,7 @@ phases:
       - yum -y install python36-pip
   pre_build:
     commands:
-      - pip install pytest
+      - pip3 install pytest
   build:
     commands:
       # Build and run tests to make sure all ok
