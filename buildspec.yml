@@ -15,6 +15,7 @@ phases:
     commands:
       # Build and run tests to make sure all ok
       - pip install -r source/requirements_dev.txt
+      - pip install pytest
       - pytest
 
   post_build:
