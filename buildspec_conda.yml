@@ -1,0 +1,43 @@
+version: 0.2
+## This is meant to run on amazonlinux docker image
+phases:
+  install:
+    commands:
+      - yum -y update
+      - yum -y install zip
+      - yum -y install python36
+      - yum -y install python36-pip
+      - curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      - bash Miniconda3-latest-Linux-x86_64.sh -b
+  pre_build:
+    commands:
+      - curl -O https://bootstrap.pypa.io/get-pip.py
+      - python3 get-pip.py
+  build:
+    commands:
+      # Build and run tests to make sure all ok
+      - pip install -r source/requirements_dev.txt
+      - pip install pytest
+      - pytest
+
+  post_build:
+    commands:
+    # Create the build package
+      - echo creating package
+      - mkdir buildoutput
+      - conda create --yes --name buildenv python=3.6
+      - source activate buildenv
+    # The requirements build for lambda
+      - conda install --yes --file source/requirements_lambda.txt
+    #Install torch without cuda on linux
+      - conda install --yes pytorch-cpu -c pytorch
+    #
+      - cp -r  ~/buildenv/lib/python3.6/site-packages/* source
+      - ls -l
+      - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
+
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: buildoutput
