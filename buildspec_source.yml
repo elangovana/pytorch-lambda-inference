@@ -52,6 +52,7 @@ phases:
 
 # pytorch install from source
       - curl -O https://github.com/pytorch/pytorch/archive/af3964.zip
+      - ls -l
       - unzip af3964.zip
     #  - git checkout af3964a8725236c78ce969b827fdeee1c5c54110
       - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
