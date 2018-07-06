@@ -28,11 +28,14 @@ phases:
       - mkdir buildoutput
       - /root/miniconda3/bin/conda create --yes --name buildenv python=3.6
       - source /root/miniconda3/bin/activate buildenv
+
     # The requirements build for lambda
       - /root/miniconda3/bin/conda install --yes --file source/requirements_lambda.txt
-    #Install torch without cuda on linux
+
+    # Install torch without cuda on linux
       - /root/miniconda3/bin/conda install --yes pytorch-cpu -c pytorch
-    #
+
+    # Zip package
       - cp -r  ~/buildenv/lib/python3.6/site-packages/* source
       - ls -l
       - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
