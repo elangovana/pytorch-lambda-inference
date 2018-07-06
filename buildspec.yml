@@ -9,7 +9,8 @@ phases:
       - yum -y install python36-pip
   pre_build:
     commands:
-      - pip3 install pytest
+      - curl -O https://bootstrap.pypa.io/get-pip.py
+      - python3 get-pip.py
   build:
     commands:
       # Build and run tests to make sure all ok
