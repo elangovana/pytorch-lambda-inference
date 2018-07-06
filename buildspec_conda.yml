@@ -41,7 +41,8 @@ phases:
 
     # Zip package
       - mkdir buildoutput
-      - cp -r  ~/envs/buildenv/lib/python3.6/site-packages/* source
+      - find . -name * -print
+      - cp -r  ~/envs/buildenv/py36/lib/python3.6/site-packages/* source
       - ls -l
       - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
 
