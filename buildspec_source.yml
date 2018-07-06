@@ -30,10 +30,14 @@ phases:
 
   post_build:
     commands:
+      - pip install virtualenv
+      - virtualenv ~/lambdavenv
+      - source ~/lambdavenv/bin/activate
     # pip installs
-      - pip install Pillow -t source
-      - pip install cython  -t source # numpy dependency
-      - pip install pyyaml  -t source # pytorch dependency
+
+      - pip install Pillow
+      - pip install cython   # numpy dependency
+      - pip install pyyaml   # pytorch dependency
 
 
 # numpy install form source
@@ -41,7 +45,7 @@ phases:
       - cd numpy
       - git checkout 31465473c491829d636c9104c390062cba005681  # latest release
       - pip install setuptools
-      - python setup.py install -t ../source
+      - python setup.py install
       - cd ..
 
 # pytorch install from source
@@ -50,14 +54,17 @@ phases:
       - git checkout af3964a8725236c78ce969b827fdeee1c5c54110
       - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
       - export NO_CUDNN=1
-      - python setup.py install -t ../source
+      - python setup.py install
       - cd ..
 
 
 
     # Zip package
       - mkdir buildoutput
-      - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
+      - cd $VIRTUAL_ENV/lib/python3.6/site-packages
+      - zip -r9 ~/buildoutput/pytorchzip_lambda_package.zip *
+      - cd
+      - cd source && zip -r ~/buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
 
 
 
