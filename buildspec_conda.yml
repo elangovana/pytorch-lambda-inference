@@ -8,12 +8,17 @@ phases:
       - yum -y install python36
       - yum -y install python36-pip
       - yum -y install bzip2
-      - curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-      - bash Miniconda3-latest-Linux-x86_64.sh -b
+
   pre_build:
     commands:
+      # Install conda
+      - curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      - bash Miniconda3-latest-Linux-x86_64.sh -b
+
+      #Install pip
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python3 get-pip.py
+
   build:
     commands:
       # Build and run tests to make sure all ok
