@@ -25,7 +25,6 @@ phases:
     commands:
     # Set up conda env
       - echo creating package
-      - mkdir buildoutput
       - ~/miniconda3/bin/conda create --yes --name buildenv python=3.6
       - source ~/miniconda3/bin/activate buildenv
 
@@ -36,6 +35,7 @@ phases:
       - ~/miniconda3/bin/conda install --yes pytorch-cpu -c pytorch
 
     # Zip package
+      - mkdir buildoutput
       - cp -r  ~/envs/buildenv/lib/python3.6/site-packages/* source
       - ls -l
       - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
