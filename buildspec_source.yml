@@ -1,0 +1,65 @@
+version: 0.2
+## This is meant to run on amazonlinux docker image amazonlinux:2018.03.0.20180424
+phases:
+  install:
+    commands:
+      - yum -y update
+      - yum -y install zip
+      - yum -y install python36
+      - yum -y install python36-pip
+      - yum -y install bzip2
+      - yum install -y gcc zlib zlib-devel openssl openssl-devel
+      - yum install git
+
+  pre_build:
+    commands:
+
+
+      #Install pip
+      - curl -O https://bootstrap.pypa.io/get-pip.py
+      - python3 get-pip.py
+
+
+
+  build:
+    commands:
+      # Build and run tests to make sure all ok
+#      - pip install -r source/requirements_dev.txt
+#      - pip install pytest
+#      - pytest
+
+  post_build:
+    commands:
+    # pip installs
+      - pip install Pillow -t source
+      - pip install cython  -t source # numpy dependency
+      - pip install pyyaml  -t source # pytorch dependency
+
+# numpy install form source
+      - git clone --recursive https://github.com/numpy/numpy.git
+      - cd numpy
+      - git checkout 31465473c491829d636c9104c390062cba005681  # latest release
+      - python setup.py install -t ../source
+      - cd ..
+
+# pytorch install from source
+      - git clone --recursive https://github.com/pytorch/pytorch.git
+      - cd pytorch
+      - git checkout af3964a8725236c78ce969b827fdeee1c5c54110
+      - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
+      - export NO_CUDNN=1
+      - python setup.py install -t ../source
+      - cd ..
+
+
+
+    # Zip package
+      - mkdir buildoutput
+      - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
+
+
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: buildoutput
