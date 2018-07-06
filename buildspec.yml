@@ -3,8 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
-      - apt-get update
-      - apt-get install zip
+      - yum update
+      - yum install zip
   pre_build:
     commands:
       - pip install pytest

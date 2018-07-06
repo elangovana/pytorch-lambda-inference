@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import os
 
-from source.lambda_handler import test_pytorch
+from lambda_handler import run_inference
 
 
 class TestSitLoadLargeDataset(TestCase):
@@ -17,7 +17,7 @@ class TestSitLoadLargeDataset(TestCase):
         # Nothing
 
         #Act
-        actual = test_pytorch(None, None)
+        actual = run_inference(None, None)
 
         #Assert Nothing
 

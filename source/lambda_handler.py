@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-def test_pytorch(event, context):
+def run_inference(event, context):
 
     torch.manual_seed(1)
     lin = nn.Linear(5, 3)  # maps from R^5 to R^3, parameters A, b
