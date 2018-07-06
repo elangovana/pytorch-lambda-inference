@@ -34,13 +34,13 @@ phases:
       - pip install Pillow -t source
       - pip install cython  -t source # numpy dependency
       - pip install pyyaml  -t source # pytorch dependency
-      - pip install setuptools
+
 
 # numpy install form source
       - git clone --recursive https://github.com/numpy/numpy.git
       - cd numpy
       - git checkout 31465473c491829d636c9104c390062cba005681  # latest release
-      - python setup.py install -t ../source
+      - pip install setup.py  -t ../source
       - cd ..
 
 # pytorch install from source
@@ -49,7 +49,7 @@ phases:
       - git checkout af3964a8725236c78ce969b827fdeee1c5c54110
       - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
       - export NO_CUDNN=1
-      - python setup.py install -t ../source
+      - pip install setup.py -t ../source
       - cd ..
 
 
