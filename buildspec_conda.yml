@@ -27,7 +27,7 @@ phases:
       - echo creating package
       - mkdir buildoutput
       - /root/miniconda3/bin/conda create --yes --name buildenv python=3.6
-      - /root/miniconda3/bin/source activate buildenv
+      - source /root/miniconda3/bin/activate buildenv
     # The requirements build for lambda
       - /root/miniconda3/bin/conda install --yes --file source/requirements_lambda.txt
     #Install torch without cuda on linux
