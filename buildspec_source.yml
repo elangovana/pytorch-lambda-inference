@@ -10,6 +10,7 @@ phases:
       - yum -y install bzip2
       - yum install -y gcc zlib zlib-devel openssl openssl-devel
       - yum install -y git
+      - yum install python36-devel
 
   pre_build:
     commands:
