@@ -9,7 +9,8 @@ phases:
       - yum -y install python36-pip
       - yum -y install bzip2
       - yum -y install  unzip
-      - yum install -y gcc zlib zlib-devel openssl openssl-devel
+      - yum install -y zlib zlib-devel openssl openssl-devel
+      - yum install -y cmake make automake gcc gcc-c++ kernel-devel
       - yum install -y git
       - yum install -y python36-devel
 

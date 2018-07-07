@@ -1,5 +1,6 @@
 version: 0.2
-## This is meant to run on amazonlinux docker image
+## This is meant to run on amazonlinux:amazonlinux:2017.03.1.20170812 docker image
+
 phases:
   install:
     commands:
