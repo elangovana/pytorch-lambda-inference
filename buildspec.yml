@@ -12,7 +12,7 @@ phases:
     commands:
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python3 get-pip.py
-      - export SOURCE_DIR = pytoch_lambda_poc
+      - export SOURCE_DIR=pytoch_lambda_poc
   build:
     commands:
       # Build and run tests to make sure all ok
