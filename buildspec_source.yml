@@ -10,7 +10,7 @@ phases:
       - yum -y install bzip2
       - yum -y install  unzip
       - yum install -y zlib zlib-devel openssl openssl-devel
-      - yum install -y cmake make automake gcc gcc-c++ kernel-devel
+      - yum install -y cmake make automake gcc gcc-c++ kernel-devel g++
       - yum install -y git
       - yum install -y python36-devel
 
@@ -21,6 +21,8 @@ phases:
       #Install pip
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python3 get-pip.py
+      #set source directory
+      - export SOURCE_DIR=pytorch_lambda_poc
 
 
 
@@ -73,7 +75,7 @@ phases:
       - cd $VIRTUAL_ENV/lib/python3.6/site-packages
       - zip -r9 ~/buildoutput/pytorchzip_lambda_package.zip *
       - cd
-      - cd source && zip -r ~/buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
+      - cd $SOURCE_DIR && zip -r ~/buildoutput/$(SOURCE_DIR)_lambda_package.zip . -x __pycache__ && cd ..
 
 
 
