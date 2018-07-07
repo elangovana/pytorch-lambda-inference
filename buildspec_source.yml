@@ -13,6 +13,7 @@ phases:
       - yum install -y cmake make automake gcc gcc-c++ kernel-devel
       - yum install -y git
       - yum install -y python36-devel
+      - yum -y update
 
   pre_build:
     commands:
