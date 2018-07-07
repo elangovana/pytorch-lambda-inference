@@ -5,8 +5,8 @@ phases:
     commands:
       - yum -y update
       - yum -y install zip
-#      - yum -y install python36
-#      - yum -y install python36-pip
+      - yum -y install python36
+      - yum -y install python36-pip
       - yum -y install bzip2
       - yum -y install  unzip
       - yum install -y zlib zlib-devel openssl openssl-devel
@@ -17,10 +17,7 @@ phases:
   pre_build:
     commands:
 
-      - curl -O https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
-      - tar -xzvf Python-3.6.1.tgz
-      - cd Python-3.6.1 && ./configure && make
-      - make install
+
       #Install pip
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python get-pip.py
