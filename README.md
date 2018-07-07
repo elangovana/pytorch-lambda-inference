@@ -1,5 +1,6 @@
-# pytorch-lambda-inference
-This is a proof of concept hack to deploy pytorch into lambda. 
+# POC Pytorch on AWS Lambda for inference
+This is a proof of concept hack to deploy pytorch into lambda.
+** Work in progress**
 
 # Build on AWS CodePipeline
 1. Folder stucture
