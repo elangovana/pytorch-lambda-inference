@@ -20,7 +20,7 @@ phases:
 
       #Install pip
       - curl -O https://bootstrap.pypa.io/get-pip.py
-      - python get-pip.py
+      - python3 get-pip.py
       #set source directory
       - export SOURCE_DIR=pytorch_lambda_poc
 
