@@ -1,6 +1,17 @@
 # pytorch-lambda-inference
 
 # Build on AWS CodePipeline
+1. Folder stucture
+```
+    source|
+          |--<your sourcecode & sub directories>
+          |--requirements_lambda.txt
+    buildspec.yaml
+    docs  |
+   
+```    
+
+     
 
 1. Makesure the environment settings matches the following
 
