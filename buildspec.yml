@@ -29,7 +29,7 @@ phases:
       - pip install -r $SOURCE_DIR/requirements_lambda.txt  -t $SOURCE_DIR
     # Install torch without cuda on linux
       - pip install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl -t $SOURCE_DIR
-      - cd $SOURCE_DIR && zip -r9 ../buildoutput/$SOURCE_DIR.zip . -x *\/__pycache__\/ *\/tests\/ && cd ..
+      - cd $SOURCE_DIR && zip -r9 ../buildoutput/$SOURCE_DIR.zip . -x */__pycache__/ */tests/ && cd ..
 
 
 artifacts:
