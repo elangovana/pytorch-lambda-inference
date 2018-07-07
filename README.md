@@ -5,11 +5,12 @@ This is a proof of concept hack to deploy pytorch into lambda.
 # Build on AWS CodePipeline
 1. Folder stucture
 ```
-    source|
-          |--<your sourcecode & sub directories>
-          |--requirements_lambda.txt
+    <sourcedir>|
+               |--<your sourcecode & sub directories>
+               |--requirements_lambda.txt
     buildspec.yaml
-    docs  |
+    docs       |
+    <tests>    |
    
 ```    
 

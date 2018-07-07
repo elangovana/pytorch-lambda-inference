@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import os
 
-from lambda_handler import run_inference
+from pytorch_lambda_poc.lambda_handler import run_inference
 
 
 class TestSitLoadLargeDataset(TestCase):

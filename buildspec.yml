@@ -12,10 +12,11 @@ phases:
     commands:
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python3 get-pip.py
+      - export SOURCE_DIR = pytoch_lambda_poc
   build:
     commands:
       # Build and run tests to make sure all ok
-      - pip install -r source/requirements_dev.txt
+      - pip install -r tests/requirements_test.txt
       - pip install pytest
       - pytest
 
@@ -25,10 +26,10 @@ phases:
       - echo creating package
       - mkdir buildoutput
     # The requirements build for lambda
-      - pip install -r source/requirements_lambda.txt  -t source
+      - pip install -r $SOURCE_DIR/requirements_lambda.txt  -t $SOURCE_DIR
     # Install torch without cuda on linux
-      - pip install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl -t source
-      - cd source && zip -r ../buildoutput/pytorchzip_lambda_package.zip . -x test*/* && cd ..
+      - pip install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl -t $SOURCE_DIR
+      - cd $SOURCE_DIR && zip -r ../buildoutput/$SOURCE_DIR.zip . -x test*/* && cd ..
 
 
 artifacts:
