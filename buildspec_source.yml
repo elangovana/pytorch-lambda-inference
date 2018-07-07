@@ -75,7 +75,7 @@ phases:
       - cd $VIRTUAL_ENV/lib/python3.6/site-packages
       - zip -r9 ~/buildoutput/pytorchzip_lambda_package.zip *
       - cd
-      - cd $SOURCE_DIR && zip -r ~/buildoutput/$(SOURCE_DIR)_lambda_package.zip . -x __pycache__ && cd ..
+      - cd $SOURCE_DIR && zip -r ~/buildoutput/$(SOURCE_DIR)_lambda_package.zip . -x **/__pycache__ **/tests && cd ..
 
 
 
