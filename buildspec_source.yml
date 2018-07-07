@@ -58,7 +58,7 @@ phases:
       - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
       - export NO_CUDNN=1
     #  - git submodule update --init
-      - cd pytorch_source
+      - cd pytorch_source && ls -l
       - python setup.py install
       - cd ..
 
