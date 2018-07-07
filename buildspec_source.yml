@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum -y update
+      #- yum -y update
       - yum -y install zip
       - yum -y install python36
       - yum -y install python36-pip
