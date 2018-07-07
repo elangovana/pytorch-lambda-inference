@@ -1,4 +1,5 @@
 # pytorch-lambda-inference
+This is a proof of concept hack to deploy pytorch into lambda
 
 # Build on AWS CodePipeline
 1. Folder stucture
