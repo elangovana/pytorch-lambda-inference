@@ -1,5 +1,5 @@
 version: 0.2
-## This is meant to run on amazonlinux docker image amazonlinux:2018.03.0.20180424
+## This is meant to run on amazonlinux docker image amazonlinux:2017.03.1.20170812 to work on lambda
 phases:
   install:
     commands:
@@ -53,12 +53,12 @@ phases:
 # pytorch install from source
       - curl --output pytorch_source.zip https://codeload.github.com/pytorch/pytorch/zip/af3964a8725236c78ce969b827fdeee1c5c54110
       - ls -l
-      - unzip pytorch_source.zip
+      - unzip pytorch_source.zip -d pytorch_source
     #  - git checkout af3964a8725236c78ce969b827fdeee1c5c54110
       - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
       - export NO_CUDNN=1
     #  - git submodule update --init
-      - cd af3964
+      - cd pytorch_source
       - python setup.py install
       - cd ..
 
