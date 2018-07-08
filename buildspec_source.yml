@@ -34,7 +34,7 @@ phases:
 #      - yum -y install automake-1.15
       - yum -y install gcc48
       - yum -y install gcc48-c++
-      - yum -y  --releasever=2017.03 install kernel-devel-4.8
+      - yum -y install http://dl.fedoraproject.org/pub/fedora/linux/releases/25/Everything/x86_64/os/Packages/k/kernel-devel-4.8.6-300.fc25.x86_64.rpm
       - yum -y install python36-devel
       - yum -y install git
       - gcc --version
