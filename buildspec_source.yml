@@ -1,5 +1,7 @@
 version: 0.2
 ## This is meant to run on amazonlinux docker image amazonlinux:2017.03.1.20170812 to work on lambda
+## Warning .. I am referencing the "latest" packages which might end up breaking things depending on when you build :-(
+## TODO: Fix to use exact version numbers
 phases:
   install:
     commands:
@@ -55,9 +57,7 @@ phases:
       - cd ..
 
 # pytorch install from source
-      #- curl --output pytorch_source.zip https://codeload.github.com/pytorch/pytorch/zip/af3964a8725236c78ce969b827fdeee1c5c54110
-     # - ls -l
-     # - unzip pytorch_source.zip -d pytorch_source
+
 
       - git clone https://github.com/pytorch/pytorch.git
       ## Warning this may not work depending on deep the clone is ..
