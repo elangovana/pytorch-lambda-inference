@@ -17,7 +17,7 @@ phases:
       - yum -y install openssl-devel
       ## Install cMake 3.X
       - yum -y remove cmake
-      - yum -y install cmake3
+      - yum -y install cmake-3.8.2-1
 #      - curl -O https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz
 #      - tar -xvzf cmake-3.10.0.tar.gz
 #      - cd cmake-3.10.0
