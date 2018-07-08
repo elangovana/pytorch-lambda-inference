@@ -6,7 +6,7 @@ phases:
   install:
     commands:
       #- yum -y update
-      - yum repolist
+      - yum repolist all
       - yum –y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
       - yum -y install zip
       - yum -y install python36
