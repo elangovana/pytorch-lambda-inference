@@ -12,7 +12,7 @@ phases:
       - yum -y install bzip2
       - yum -y install  unzip
       - yum install -y zlib zlib-devel openssl openssl-devel
-      - yum install -y cmake make automake gcc gcc48-c++ kernel-devel
+      - yum install -y cmake make automake gcc48 gcc48-c++ kernel-devel
       - yum install -y git
       - yum install -y python36-devel
       - gcc --version
