@@ -52,7 +52,7 @@ phases:
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python3 get-pip.py
       #set source directory
-      - export SOURCE_DIR=pytorch_lambda_poc
+      - export SOURCE_DIR=$CODEBUILD_SRC_DIR/pytorch_lambda_poc
 
 
 
@@ -100,11 +100,11 @@ phases:
     # Zip package
       - mkdir buildoutput
       - cd $VIRTUAL_ENV/lib/python3.6/site-packages
-      - zip -r9 ~/buildoutput/pytorchzip_lambda_package.zip *
+      - zip -r9 ~/buildoutput/lambda_package.zip . --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"
       - cd
       - ls
       - pwd
-      - cd $SOURCE_DIR && zip -r9 ~/buildoutput/$(SOURCE_DIR)_lambda_package.zip .  --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"  && cd ..
+      - cd $SOURCE_DIR && zip -r9 ~/buildoutput/lambda_package.zip .  --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"  && cd ..
 
 
 
