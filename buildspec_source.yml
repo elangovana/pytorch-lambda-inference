@@ -6,6 +6,7 @@ phases:
   install:
     commands:
       #- yum -y update
+      - yum repolist
       - yum -y install zip
       - yum -y install python36
       - yum -y install python36-pip
@@ -15,6 +16,7 @@ phases:
       - yum -y install zlib-devel
       - yum -y install openssl
       - yum -y install openssl-devel
+
       ## Install cMake 3.X
 
     #   - yum -y install cmake-3.8.2-1
