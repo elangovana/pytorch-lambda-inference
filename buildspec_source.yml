@@ -11,10 +11,27 @@ phases:
       - yum -y install python36-pip
       - yum -y install bzip2
       - yum -y install  unzip
-      - yum install -y zlib zlib-devel openssl openssl-devel
-      - yum install -y cmake-3.3 make-4.1 automake-1.15 gcc48 gcc48-c++ kernel-devel48
-      - yum install -y git
-      - yum install -y python36-devel
+      - yum -y install zlib
+      - yum -y install zlib-devel
+      - yum -y install openssl
+      - yum -y install openssl-devel
+      ## Install cMake 3.X
+      - yum remove cmake
+      - curl -O https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz
+      - tar -xvzf cmake-3.10.0.tar.gz
+      - cd cmake-3.10.0
+      - ./bootstrap
+      - make
+      - make install
+      - cd
+      #Install otheres
+#      - yum -y install make-4.1
+#      - yum -y install automake-1.15
+      - yum -y install gcc48
+      - yum -y install gcc48-c++
+      - yum -y install kernel-devel-4.8
+      - yum -y install python36-devel
+      - yum -y install git
       - gcc --version
 
   pre_build:
