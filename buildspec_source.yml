@@ -20,7 +20,6 @@ phases:
       - yum -y install openssl-devel
 
       ## Install cMake 3.X
-      - yum -y install https://rpmfind.net/linux/fedora/linux/releases/28/Everything/x86_64/os/Packages/c/cmake-3.11.0-1.fc28.x86_64.rpm
 #      - curl -O https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz
 #      - tar -xvzf cmake-3.10.0.tar.gz
 #      - cd cmake-3.10.0
@@ -34,6 +33,13 @@ phases:
       - yum -y install gcc48
       - yum -y install gcc48-c++
       - yum -y install http://dl.fedoraproject.org/pub/fedora/linux/releases/25/Everything/x86_64/os/Packages/k/kernel-devel-4.8.6-300.fc25.x86_64.rpm
+      - curl -O https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz
+      - tar -xvzf cmake-3.10.0.tar.gz
+      - cd cmake-3.10.0
+      - ./bootstrap
+      - make
+      - make install
+      - cd
       - yum -y install python36-devel
       - yum -y install git
       - gcc --version
