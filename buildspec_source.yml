@@ -57,15 +57,13 @@ phases:
       - cd ..
 
 # pytorch install from source
-
-
-      - git clone https://github.com/pytorch/pytorch.git
+      - git clone https://github.com/pytorch/pytorch.git   
+      # Get source corresponding to v0.4.0 pytorch 3749c581b79cba49f511b19fa02c0f50fa05b250 as per https://github.com/pytorch/pytorch/releases
       ## Warning this may not work depending on deep the clone is ..
-      - cd pytorch && git checkout af3964a8725236c78ce969b827fdeee1c5c54110
+      - cd pytorch && git checkout 3749c581b79cba49f511b19fa02c0f50fa05b250
       - export NO_CUDA=1  # reduce package size (pointless b/c AWS Lambda does not have these capabilities anyways)
       - export NO_CUDNN=1
       - export NO_DISTRIBUTED=1
-
       - git submodule update --init
       - python setup.py install
       - cd
