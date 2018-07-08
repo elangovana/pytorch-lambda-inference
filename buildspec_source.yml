@@ -24,7 +24,7 @@ phases:
       - make
       - make install
       - cd
-      #Install otheres
+      #Install others
 #      - yum -y install make-4.1
 #      - yum -y install automake-1.15
       - yum -y install gcc48
