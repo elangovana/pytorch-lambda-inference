@@ -33,7 +33,7 @@ phases:
 #      - yum -y install automake-1.15
       - yum -y install gcc48
       - yum -y install gcc48-c++
-      - yum -y install kernel-devel-4.8.6-300
+      - yum -y install kernel-devel-4.8.6-300.fc25.x86_64
       - yum -y install python36-devel
       - yum -y install git
       - gcc --version
