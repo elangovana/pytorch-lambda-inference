@@ -8,6 +8,7 @@ phases:
       #- yum -y update
       - yum repolist all
       - echo y | yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      - yum-config-manager --add-repo  https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-22&arch=x86_64
       - yum -y install zip
       - yum -y install python36
       - yum -y install python36-pip
@@ -33,7 +34,7 @@ phases:
 #      - yum -y install automake-1.15
       - yum -y install gcc48
       - yum -y install gcc48-c++
-      - yum -y install kernel-devel-4.8.6-300.fc25.x86_64
+      - yum -y install kernel-devel-4.8.6-300.fc28.x86_64
       - yum -y install python36-devel
       - yum -y install git
       - gcc --version
