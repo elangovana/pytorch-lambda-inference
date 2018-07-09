@@ -106,10 +106,11 @@ phases:
       - zip -r9 ~/buildoutput/lambda_package.zip . --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"
       - cd $SOURCE_DIR && zip -r9 ~/buildoutput/lambda_package.zip .  --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"  && cd ~/
       - ls
+      - ls -l ~/buildoutput
 
 
 
 artifacts:
   files:
     - '**/*'
-  base-directory: ~/buildoutput
+  base-directory: buildoutput
