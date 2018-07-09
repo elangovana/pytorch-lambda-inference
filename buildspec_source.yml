@@ -99,10 +99,13 @@ phases:
 
     # Zip package
       - cd 
+      
       - mkdir ~/buildoutput
+      - ls
       - cd $VIRTUAL_ENV/lib/python3.6/site-packages
       - zip -r9 ~/buildoutput/lambda_package.zip . --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"
       - cd $SOURCE_DIR && zip -r9 ~/buildoutput/lambda_package.zip .  --exclude "**/__pycache__/**" "**/tests/**" "**/testing/**"  && cd ~/
+      - ls
 
 
 
